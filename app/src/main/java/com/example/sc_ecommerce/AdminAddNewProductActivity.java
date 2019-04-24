@@ -5,17 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import io.paperdb.Paper;
 
-public class HomeActivity extends AppCompatActivity {
-    private Button btn_logout;
+public class AdminAddNewProductActivity extends AppCompatActivity {
 
+    private Button btn_logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
+        setContentView(R.layout.activity_admin_add_new_product);
         btn_logout = (Button) findViewById(R.id.btn_logouthome);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -24,10 +24,11 @@ public class HomeActivity extends AppCompatActivity {
 
                 Paper.book().destroy();
 
-                Intent intent  = new Intent(HomeActivity.this, MainActivity.class);
+                Intent intent  = new Intent(AdminAddNewProductActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+        Toast.makeText(this, "hello bitch", Toast.LENGTH_SHORT).show();
     }
 }

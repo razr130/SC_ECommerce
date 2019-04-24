@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:background="@color/colorPrimaryDark">
+    android:background="@drawable/bg2">
 
 
     <!--<ImageView-->
@@ -24,10 +24,10 @@
         android:layout_centerHorizontal="true"
         android:text="Register"
         android:textSize="50dp"
-        android:textColor="#ffffff"
+        android:textColor="@color/coloBlueDark"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="150dp"
         />
     <EditText
         android:id="@+id/TxtNamaRegis"
@@ -40,8 +40,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:hint="Name"
-        android:textColor="#ffffff"
-        android:textColorHint="#aaaaaa"
+        android:textColor="@color/coloBlueDark"
+        android:textColorHint="@color/coloBlueLight"
         android:textSize="17dp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -58,8 +58,8 @@
         android:layout_marginTop="20dp"
         android:hint="Phone Number"
         android:inputType="number"
-        android:textColor="#ffffff"
-        android:textColorHint="#aaaaaa"
+        android:textColor="@color/coloBlueDark"
+        android:textColorHint="@color/coloBlueLight"
         android:textSize="17dp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -76,8 +76,8 @@
         android:layout_marginTop="20dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColor="#ffffff"
-        android:textColorHint="#aaaaaa"
+        android:textColor="@color/coloBlueDark"
+        android:textColorHint="@color/coloBlueLight"
         android:textSize="17dp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -97,7 +97,7 @@
         android:background="@drawable/buttons"
         android:padding="20dp"
         android:text="Register"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:layout_marginTop="20dp"
         android:textSize="20dp" />
 </RelativeLayout>
