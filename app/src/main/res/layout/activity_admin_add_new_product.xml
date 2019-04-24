@@ -6,13 +6,125 @@
     android:layout_height="match_parent"
     tools:context=".AdminAddNewProductActivity">
 
-    <Button
-        android:id="@+id/btn_logouthome"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/input_design"
-        android:text="Log Out"
-        android:textColor="@color/coloBlueDark"/>
+    <!--<Button-->
+        <!--android:id="@+id/btn_logouthome"-->
+        <!--android:layout_width="80dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:background="@drawable/input_design"-->
+        <!--android:text="Log Out"-->
+        <!--android:textColor="@color/coloBlueDark"/>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:id="@+id/TxtTitleAddProduct"
+                android:text="Add New Product"
+                android:textColor="@color/coloBlueDark"
+                android:layout_marginTop="30dp"
+                />
+            <View
+                android:id="@+id/theline"
+                android:layout_below="@+id/TxtTitleAddProduct"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_margin="20dp"/>
+            <ImageView
+                android:id="@+id/BtnAddPhoto"
+                android:layout_below="@+id/theline"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/landscape"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="#c4c4c4"
+                android:id="@+id/TxtGuide"
+                android:layout_below="@id/BtnAddPhoto"
+                android:layout_centerHorizontal="true"
+                android:text="Tap the image to add a photo..."
+                android:textStyle="italic"
+                android:layout_marginTop="10dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TxtProductName"
+                android:layout_below="@+id/TxtGuide"
+                android:background="@drawable/input_design"
+                android:hint="Product name..."
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:inputType="textMultiLine"
+                android:padding="20dp"
+                android:textColor="@color/coloBlueDark"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TxtProductDescripton"
+                android:layout_below="@+id/TxtProductName"
+                android:background="@drawable/input_design"
+                android:hint="Product description..."
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:inputType="textMultiLine"
+                android:padding="20dp"
+                android:textColor="@color/coloBlueDark"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TxtProductPrice"
+                android:layout_below="@+id/TxtProductDescripton"
+                android:background="@drawable/input_design"
+                android:hint="Product Price..."
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:inputType="number"
+                android:padding="20dp"
+                android:textColor="@color/coloBlueDark"
+                />
+
+            <Button
+                android:id="@+id/BtnAddProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtProductPrice"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_centerHorizontal="true"
+                android:padding="17dp"
+                android:textSize="15dp"
+                android:background="@drawable/buttons"
+                android:textColor="#ffffff"
+                android:text="Add Product"
+                android:layout_marginBottom="30dp"
+
+                />
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>

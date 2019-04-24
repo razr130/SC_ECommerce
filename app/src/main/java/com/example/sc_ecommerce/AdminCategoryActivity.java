@@ -15,6 +15,21 @@ public class AdminCategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_category);
 
+        shirt = (ImageView) findViewById(R.id.logo_shirt);
+        sport = (ImageView) findViewById(R.id.logo_sport);
+        dress = (ImageView) findViewById(R.id.logo_dress);
+        sweater = (ImageView) findViewById(R.id.logo_sweater);
+        glasses = (ImageView) findViewById(R.id.logo_glasses);
+        hat = (ImageView) findViewById(R.id.logo_hat);
+        bag = (ImageView) findViewById(R.id.logo_bag);
+        shoes = (ImageView) findViewById(R.id.logo_shoes);
+        headphone = (ImageView) findViewById(R.id.logo_headphone);
+        laptop = (ImageView) findViewById(R.id.logo_laptop);
+        watch = (ImageView) findViewById(R.id.logo_watch);
+        mobile = (ImageView) findViewById(R.id.logo_mobile);
+
+
+
         shirt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

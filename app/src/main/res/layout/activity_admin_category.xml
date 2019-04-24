@@ -16,45 +16,117 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/coloBlueDark"
         android:textAlignment="center"
+        android:textSize="35dp"
+        android:text="Add New Product"
+        android:textStyle="bold"
+        />
+    <View
+        android:id="@+id/theline"
+        android:layout_below="@+id/TxtSloganCategory"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_margin="20dp"/>
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TxtChoose"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/coloBlueMedium"
+        android:textAlignment="center"
         android:textSize="20dp"
-        android:text="Add New Product"/>
+        android:text="Choose a Category"
+        android:textStyle="bold"
+        android:layout_below="@+id/theline"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Linear1"
-        android:layout_below="@+id/TxtSloganCategory"
+        android:layout_below="@+id/TxtChoose"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+
         >
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/shirt"
-            android:id="@+id/logo_shirt"
-            android:layout_margin="10dp"/>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/sport"
-            android:id="@+id/logo_sport"
-            android:layout_margin="10dp"/>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/dress"
-            android:id="@+id/logo_dress"
-            android:layout_margin="10dp"/>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/sweater"
-            android:id="@+id/logo_sweater"
-            android:layout_margin="10dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/shirt"
+                android:id="@+id/logo_shirt"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_shirt"
+                android:textAlignment="center"
+                android:text="Shirt"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/sport"
+                android:id="@+id/logo_sport"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_sport"
+                android:textAlignment="center"
+                android:text="Sport Shirt"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/dress"
+                android:id="@+id/logo_dress"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_dress"
+                android:textAlignment="center"
+                android:text="Dress"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/sweater"
+                android:id="@+id/logo_sweater"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_sweater"
+                android:textAlignment="center"
+                android:text="Sweater"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
 
     </LinearLayout>
 
@@ -66,34 +138,83 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+
         >
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/glasses"
-            android:id="@+id/logo_glasses"
-            android:layout_margin="10dp"/>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/suitcase"
-            android:id="@+id/logo_bag"
-            android:layout_margin="10dp"/>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/cap"
-            android:id="@+id/logo_hat"
-            android:layout_margin="10dp"/>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/shoes"
-            android:id="@+id/logo_shoes"
-            android:layout_margin="10dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/glasses"
+                android:id="@+id/logo_glasses"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_glasses"
+                android:textAlignment="center"
+                android:text="Glasses"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/suitcase"
+                android:id="@+id/logo_bag"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_bag"
+                android:textAlignment="center"
+                android:text="Bag"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/cap"
+                android:id="@+id/logo_hat"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_hat"
+                android:textAlignment="center"
+                android:text="Hat"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/shoes"
+                android:id="@+id/logo_shoes"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_shoes"
+                android:textAlignment="center"
+                android:text="Shoes"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
 
     </LinearLayout>
 
@@ -105,34 +226,82 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+
         >
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/customerservice"
-            android:id="@+id/logo_headphone"
-            android:layout_margin="10dp"/>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/laptop"
-            android:id="@+id/logo_laptop"
-            android:layout_margin="10dp"/>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/clock"
-            android:id="@+id/logo_watch"
-            android:layout_margin="10dp"/>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/smartphone"
-            android:id="@+id/logo_mobile"
-            android:layout_margin="10dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/customerservice"
+                android:id="@+id/logo_headphone"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_headphone"
+                android:textAlignment="center"
+                android:text="Headphone"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/laptop"
+                android:id="@+id/logo_laptop"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_laptop"
+                android:textAlignment="center"
+                android:text="Laptop"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/clock"
+                android:id="@+id/logo_watch"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_watch"
+                android:textAlignment="center"
+                android:text="Watch"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/smartphone"
+                android:id="@+id/logo_mobile"
+                android:layout_margin="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_mobile"
+                android:textAlignment="center"
+                android:text="Phone"
+                android:textColor="@color/coloBlueMedium"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
 
     </LinearLayout>
 

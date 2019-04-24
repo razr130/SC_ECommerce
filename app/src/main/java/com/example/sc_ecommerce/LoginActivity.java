@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(parentDbName.equals("Admins"))
                             {
                                 loadingbar.dismiss();
-                                Intent intent  = new Intent(LoginActivity.this, AdminAddNewProductActivity.class);
+                                Intent intent  = new Intent(LoginActivity.this, AdminCategoryActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);

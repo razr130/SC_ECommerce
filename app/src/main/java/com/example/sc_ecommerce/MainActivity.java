@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         if(userdata.getPassword().equals(password))
                         {
                             loadingbar.dismiss();
-                            Intent intent  = new Intent(MainActivity.this, AdminAddNewProductActivity.class);
+                            Intent intent  = new Intent(MainActivity.this, AdminCategoryActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
