@@ -138,6 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent  = new Intent(LoginActivity.this, HomeActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                Prevalent.onlineuser = userdata;
                                 startActivity(intent);
                                 finish();
                             }

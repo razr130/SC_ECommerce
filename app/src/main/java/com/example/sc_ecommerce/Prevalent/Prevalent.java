@@ -5,7 +5,7 @@ import com.example.sc_ecommerce.Model.Users;
 
 public class Prevalent {
 
-    private static Users onlineuser;
+    public static Users onlineuser;
     private static Admins onlineadmin;
 
     public static final String userphone = "UserPhone";
