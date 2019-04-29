@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/Setting_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/coloBlueDark">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/setting_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <TextView
+                   android:id="@+id/TxtClose"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Close"
+                   android:textColor="#ffffff"
+                   android:textSize="20dp"
+                   android:textStyle="bold"
+                   android:layout_alignParentStart="true"
+                   />
+               <TextView
+                   android:id="@+id/TxtUpdate"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Update"
+                   android:textColor="#ffffff"
+                   android:textSize="20dp"
+                   android:textStyle="bold"
+                   android:layout_alignParentEnd="true"
+                   android:layout_marginRight="20dp"
+                   />
+           </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profpic_image_setting"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/user"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Setting_appbar"/>
+    <TextView
+        android:id="@+id/txtchangeprofpic"
+        android:layout_below="@id/profpic_image_setting"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change profile picture"
+        android:textColor="#c4c4c4"
+        android:textSize="15dp"
+        android:textStyle="italic"
+        android:layout_marginTop="10dp"
+        />
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TxtProfileNumber"
+        android:layout_below="@+id/txtchangeprofpic"
+        android:hint="New Phone Number ... "
+        android:layout_margin="20dp"
+        android:inputType="number"
+        android:layout_marginTop="10dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TxtNameProfile"
+        android:layout_below="@+id/TxtProfileNumber"
+        android:hint="New Name ... "
+        android:layout_margin="20dp"
+        android:layout_marginTop="10dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TxtAddressProfile"
+        android:layout_below="@+id/TxtNameProfile"
+        android:hint="New Address ... "
+        android:layout_margin="20dp"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sc_ecommerce.Model.Products;
 import com.example.sc_ecommerce.Prevalent.Prevalent;
@@ -78,6 +79,8 @@ public class HomeActivity extends AppCompatActivity
         CircleImageView profileimage = headerview.findViewById(R.id.profile_image);
 
         txtusername.setText(Prevalent.onlineuser.getName());
+        Toast.makeText(this, Prevalent.onlineuser.getName().toString(), Toast.LENGTH_SHORT).show();
+        Picasso.get().load(Prevalent.onlineuser.getImage()).placeholder(R.drawable.user).into(profileimage);
 
         recycler = findViewById(R.id.recycler);
         recycler.setHasFixedSize(true);
@@ -167,6 +170,8 @@ public class HomeActivity extends AppCompatActivity
 
         } else if (id == R.id.action_settings)
         {
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.action_logout)
         {
