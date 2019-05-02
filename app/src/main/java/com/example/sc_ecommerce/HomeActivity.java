@@ -62,8 +62,8 @@ public class HomeActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                startActivity(intent);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -100,7 +100,7 @@ public class HomeActivity extends AppCompatActivity
         FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
                 new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model)
+                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model)
                     {
                         holder.txtproductname.setText(model.getProduct_name());
                         holder.txtproductprice.setText("Rp " + model.getProduct_price());
@@ -108,6 +108,15 @@ public class HomeActivity extends AppCompatActivity
 
                         Picasso.get().load(model.getProduct_image()).into(holder.picproduct);
 
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v)
+                            {
+                             Intent intent = new Intent(HomeActivity.this, ProductDetailActivity.class);
+                             intent.putExtra("product_id", model.getProduct_id());
+                             startActivity(intent);
+                            }
+                        });
                     }
 
                     @NonNull
@@ -161,16 +170,18 @@ public class HomeActivity extends AppCompatActivity
 
         if (id == R.id.nav_cart)
         {
-            // Handle the camera action
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_order)
         {
+
 
         } else if (id == R.id.nav_category)
         {
 
         } else if (id == R.id.action_settings)
         {
-            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.action_logout)

@@ -182,7 +182,7 @@ public class SettingsActivity extends AppCompatActivity {
             }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                 @Override
                 public void onComplete(@NonNull Task<Uri> task) {
-                    Toast.makeText(SettingsActivity.this, "mau masuk proses", Toast.LENGTH_SHORT).show();
+
                     if(task.isSuccessful())
                     {
                         Uri downloadurl = task.getResult();

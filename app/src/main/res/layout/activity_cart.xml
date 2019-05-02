@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CartActivity">
+
+    <RelativeLayout
+        android:id="@+id/Relative_first"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/coloBlueDark"
+        android:layout_alignParentTop="true"
+        >
+        <TextView
+            android:id="@+id/TxtTotalPrice"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Total Price = "
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            />
+
+
+    </RelativeLayout>
+    
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/OrderList_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/Relative_first"
+        android:layout_above="@+id/BtnNext"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+    
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/coloBlueDark"
+    android:text="Next"
+    android:id="@+id/BtnNext"
+    android:textColor="#ffffff"
+    android:layout_margin="20dp"
+    />
+</RelativeLayout>

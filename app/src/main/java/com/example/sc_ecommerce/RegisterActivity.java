@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.sc_ecommerce.Model.Users;
+import com.example.sc_ecommerce.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+
+import io.paperdb.Paper;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -100,9 +104,11 @@ public class RegisterActivity extends AppCompatActivity {
                             {
                                 Toast.makeText(RegisterActivity.this, "Your account has been created...", Toast.LENGTH_SHORT).show();
                                 loadingbar.dismiss();
-                                Intent intent  = new Intent(RegisterActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
+
+                                AllowAccessToAccount(phone, password);
+//                                Intent intent  = new Intent(RegisterActivity.this, MainActivity.class);
+//                                startActivity(intent);
+//                                finish();
                             }
                             else
                             {
@@ -117,6 +123,58 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "This phone number is already exist...", Toast.LENGTH_SHORT).show();
                     loadingbar.dismiss();
                     txt_phone.getText().clear();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void AllowAccessToAccount(final String phone, final String password) {
+
+
+        final DatabaseReference RootRef;
+        RootRef = FirebaseDatabase.getInstance().getReference();
+
+        RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.child("Users").child(phone).exists()){
+
+                    Users userdata = dataSnapshot.child("Users").child(phone).getValue(Users.class);
+
+                    if(userdata.getPhone().equals(phone))
+                    {
+                        if(userdata.getPassword().equals(password))
+                        {
+
+
+
+                                loadingbar.dismiss();
+                                Intent intent  = new Intent(RegisterActivity.this, HomeActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                Prevalent.onlineuser = userdata;
+                                startActivity(intent);
+                                finish();
+
+
+                        }
+                        else
+                        {
+                            loadingbar.dismiss();
+                            Toast.makeText(RegisterActivity.this, "Wrong password", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else
+                {
+                    Toast.makeText(RegisterActivity.this, "Account didn't exist...", Toast.LENGTH_SHORT).show();
+                    loadingbar.dismiss();
                 }
             }
 
