@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 AllowAccess(phone, pass);
             }
         }
-
     }
 
     private void AllowAccess(final String phone, final String password) {

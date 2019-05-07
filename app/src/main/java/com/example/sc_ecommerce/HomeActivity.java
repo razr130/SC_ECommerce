@@ -79,7 +79,7 @@ public class HomeActivity extends AppCompatActivity
         CircleImageView profileimage = headerview.findViewById(R.id.profile_image);
 
         txtusername.setText(Prevalent.onlineuser.getName());
-        Toast.makeText(this, Prevalent.onlineuser.getName().toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, Prevalent.onlineuser.getName().toString(), Toast.LENGTH_SHORT).show();
         Picasso.get().load(Prevalent.onlineuser.getImage()).placeholder(R.drawable.user).into(profileimage);
 
         recycler = findViewById(R.id.recycler);
@@ -170,7 +170,7 @@ public class HomeActivity extends AppCompatActivity
 
         if (id == R.id.nav_cart)
         {
-            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_order)
         {
@@ -181,7 +181,8 @@ public class HomeActivity extends AppCompatActivity
 
         } else if (id == R.id.action_settings)
         {
-            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.action_logout)

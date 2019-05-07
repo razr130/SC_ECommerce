@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sc_ecommerce.Model.Users;
 import com.example.sc_ecommerce.Prevalent.Prevalent;
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.Continuation;
@@ -47,7 +48,6 @@ public class SettingsActivity extends AppCompatActivity {
     private String checker = "";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,13 +75,10 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(checker.equals("clicked"))
-                {
+                if (checker.equals("clicked")) {
                     userinfosaved();
                     Toast.makeText(SettingsActivity.this, "clicked", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                } else {
                     updateuserinfo();
                     Toast.makeText(SettingsActivity.this, "just update", Toast.LENGTH_SHORT).show();
                 }
@@ -91,24 +88,19 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checker = "clicked";
-
                 CropImage.activity(imageUri)
-                        .setAspectRatio(1,1)
+                        .setAspectRatio(1, 1)
                         .start(SettingsActivity.this);
-
-
             }
         });
     }
 
-    private void updateuserinfo()
-    {
+    private void updateuserinfo() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
         HashMap<String, Object> userMap = new HashMap<>();
-        userMap. put("name", txtnewname.getText().toString());
-        userMap. put("address", txtnewaddress.getText().toString());
-        userMap. put("phone", txtnewphone.getText().toString());
-
+        userMap.put("name", txtnewname.getText().toString());
+        userMap.put("address", txtnewaddress.getText().toString());
+        userMap.put("phone", txtnewphone.getText().toString());
 
         ref.child(Prevalent.onlineuser.getPhone()).updateChildren(userMap);
 
@@ -121,59 +113,44 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK && data!=null)
-        {
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             imageUri = result.getUri();
 
             profpic.setImageURI(imageUri);
-        }
-        else
-        {
+        } else {
             Toast.makeText(this, "Error, try again", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(SettingsActivity.this, SettingsActivity.class));
             finish();
         }
     }
 
-    private void userinfosaved()
-    {
-        if(TextUtils.isEmpty(txtnewname.getText().toString()))
-        {
+    private void userinfosaved() {
+        if (TextUtils.isEmpty(txtnewname.getText().toString())) {
             Toast.makeText(this, "Name is empty", Toast.LENGTH_SHORT).show();
-        }
-        else if(TextUtils.isEmpty(txtnewaddress.getText().toString()))
-        {
+        } else if (TextUtils.isEmpty(txtnewaddress.getText().toString())) {
             Toast.makeText(this, "address is empty", Toast.LENGTH_SHORT).show();
-        }
-        else if(TextUtils.isEmpty(txtnewphone.getText().toString()))
-        {
+        } else if (TextUtils.isEmpty(txtnewphone.getText().toString())) {
             Toast.makeText(this, "Phone is empty", Toast.LENGTH_SHORT).show();
-        }
-        else if (checker == "clicked")
-        {
+        } else if (checker == "clicked") {
             uploadimage();
         }
     }
 
-    private void uploadimage()
-    {
+    private void uploadimage() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Update Profile");
         progressDialog.setMessage("Please wait, we're updating your information");
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
 
-        if(imageUri!=null)
-        {
+        if (imageUri != null) {
             final StorageReference fileRef = storagepictureref.child(Prevalent.onlineuser.getPhone() + ".jpg");
             uploadtask = fileRef.putFile(imageUri);
             uploadtask.continueWithTask(new Continuation() {
                 @Override
-                public Object then(@NonNull Task task) throws Exception
-                {
-                    if(!task.isSuccessful())
-                    {
+                public Object then(@NonNull Task task) throws Exception {
+                    if (!task.isSuccessful()) {
                         Toast.makeText(SettingsActivity.this, "bisa", Toast.LENGTH_SHORT).show();
                         throw task.getException();
                     }
@@ -183,21 +160,25 @@ public class SettingsActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Uri> task) {
 
-                    if(task.isSuccessful())
-                    {
+                    if (task.isSuccessful()) {
+
                         Uri downloadurl = task.getResult();
                         myurl = downloadurl.toString();
 
                         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+                        ref.child(Prevalent.onlineuser.getPhone()).removeValue();
                         HashMap<String, Object> userMap = new HashMap<>();
-                        userMap. put("name", txtnewname.getText().toString());
-                        userMap. put("address", txtnewaddress.getText().toString());
-                        userMap. put("phone", txtnewphone.getText().toString());
-                        userMap. put("image", myurl);
+                        userMap.put("name", txtnewname.getText().toString());
+                        userMap.put("address", txtnewaddress.getText().toString());
+                        userMap.put("phone", txtnewphone.getText().toString());
+                        userMap.put("image", myurl);
+                        userMap.put("password", Prevalent.onlineuser.getPassword());
 
+
+                        ref.child(txtnewphone.getText().toString()).updateChildren(userMap);
                         Prevalent.onlineuser.setImage(myurl);
                         Prevalent.onlineuser.setName(txtnewname.getText().toString());
-                        ref.child(Prevalent.onlineuser.getPhone()).updateChildren(userMap);
+                        Prevalent.onlineuser.setPhone(txtnewphone.getText().toString());
 
                         Toast.makeText(SettingsActivity.this, "after process", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
@@ -205,34 +186,26 @@ public class SettingsActivity extends AppCompatActivity {
                         startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
                         Toast.makeText(SettingsActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
                         finish();
-                    }
-                    else
-                    {
+                    } else {
                         progressDialog.dismiss();
                         Toast.makeText(SettingsActivity.this, "Profile update error", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
 
-        }
-        else
-        {
+        } else {
             Toast.makeText(this, "Image is not selected", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void userinfodisplay(final CircleImageView profpic, final EditText txtnewphone, final EditText txtnewname, final EditText txtnewaddress)
-    {
+    private void userinfodisplay(final CircleImageView profpic, final EditText txtnewphone, final EditText txtnewname, final EditText txtnewaddress) {
         DatabaseReference userref = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.onlineuser.getPhone());
 
         userref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                if(dataSnapshot.exists())
-                {
-                    if(dataSnapshot.child("image").exists())
-                    {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    if (dataSnapshot.child("image").exists()) {
                         String image = dataSnapshot.child("image").getValue().toString();
                         String name = dataSnapshot.child("name").getValue().toString();
                         String phone = dataSnapshot.child("phone").getValue().toString();
@@ -249,8 +222,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
